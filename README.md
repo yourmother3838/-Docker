@@ -24,6 +24,22 @@ uvicorn main:app --reload
 
 Таблицы создаются и заполняются начальными данными при старте приложения.
 
+## Запуск в Docker
+
+```
+docker compose up --build
+```
+
+Поднимаются четыре сервиса: `app` (FastAPI), `worker` (Celery), `db` (PostgreSQL), `redis`.
+Внутри Docker-сети сервисы обращаются друг к другу по именам (`db`, `redis`), настройки лежат в `.env.docker`.
+Приложение будет доступно на http://localhost:8000, документация на http://localhost:8000/docs.
+
+Остановка: `docker compose down` (данные БД сохраняются в томе `pgdata`; `docker compose down -v` удалит и их).
+
+## CI
+
+При push в ветку `main` GitHub Actions запускает `pytest` (`.github/workflows/ci.yml`).
+
 ## Тесты
 
 ```
