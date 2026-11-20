@@ -24,6 +24,12 @@ uvicorn main:app --reload
 
 Таблицы создаются и заполняются начальными данными при старте приложения.
 
+## Публичный адрес
+
+https://docker-production-0497ba12.up.railway.app
+
+Документация: https://docker-production-0497ba12.up.railway.app/docs
+
 ## Запуск в Docker
 
 ```
